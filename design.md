@@ -10,8 +10,34 @@ file. The rules live in code in `dashboard/charts.py` and
 
 ## Screens
 
-<One text wireframe per screen, with the framed question each section
-answers and the chart chosen for it. Drawn with `/dashkit:design`.>
+### Charts
+
+One row per framed question in `spec.md`.
+
+| # | Framed question | Chart | Why |
+|---|---|---|---|
+| 1 | Top five genres and each one's share of revenue | Horizontal bars of percentages (`charts.ranked_bar(kind="percent")`) | Shares of a whole, five parts |
+| 2 | Top five countries and each one's share of revenue | Horizontal bars of percentages (`charts.ranked_bar(kind="percent")`) | Shares of a whole; matches question 1 so the two read side by side |
+| 3 | Genre-and-country pairs that earn the most | Horizontal bars, top 10 pairs (`charts.ranked_bar`) | Items ranked by size |
+| 4 | Revenue each year 2021-2025 and change from the prior year | Table: year · revenue · change vs prior year, drops in red (`st.dataframe`) | Five exact values and percentages Morgan will quote; question 5 shows the shape |
+| 5 | Monthly revenue across the full period | A line, 60 months (`charts.trend_line`) | Change over time |
+| 6 | Share of revenue from the top 10 customers | Horizontal bars of the top 10 customers' revenue (`charts.ranked_bar`) | Shows how concentrated revenue is; the headline gives the share |
+| 7 | Years (of five) each top-10 customer bought in | Table: customer · revenue · years active (`st.dataframe`) | Ten names with exact counts to look up |
+| 8 | Revenue from each sales support rep's customers | Horizontal bars (`charts.ranked_bar`) | Items ranked by size |
+| 9 | Customers per rep and average revenue per customer | Table: rep · customers · revenue per customer (`st.dataframe`) | Two measures side by side; exact values |
+| 10 | Do the totals tie out with Finance | A tile on every screen: grand total, date range, reconciliation gap $0.00 (`charts.kpi_row`) | The spec puts the grand total on every screen |
+
+### Headline tiles
+
+| Screen | Tiles (each against a comparison) |
+|---|---|
+| 1. Where the money comes from | Total revenue (vs prior year when one year is picked) · Top genre's share (Rock 35.5%) · Top country's share (USA 22.5%) · Ties to Finance (gap $0.00) |
+| 2. Growth | Latest year's revenue (2025, vs 2024) · Average yearly revenue · Best year (2022) · Ties to Finance |
+| 3. Customers | Top 10 customers' share (vs their share if all 59 customers spent equally, 16.9%) · Top-10 customers who bought in all five years (2 of 10) · Ties to Finance |
+| 4. Sales reps | Top rep's customer revenue (vs the rep average) · Customers across reps (59 across 3) · Ties to Finance |
+
+The Screen 1 year picker defaults to all years, as `spec.md` sets it; the
+spec overrides the "most recent complete period" default below.
 
 ---
 
@@ -53,6 +79,9 @@ the chart with the team before building it, and add a row here.
 
 - Money in whole dollars ($1,234), with cents under $10 ($5.65); counts
   with separators (1,234); percentages to one decimal (12.3%).
+- Exception, so figures tie out to Finance to the cent: grand totals, the
+  "ties to Finance" tile, and exact-value tables show cents ($2,328.60),
+  using kind `"cents"`. Charts and other tiles stay in whole dollars.
 - Bars start at zero.
 
 ### Color
