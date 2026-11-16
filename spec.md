@@ -17,7 +17,7 @@
 **Brief question B: Are we really growing?**
 
 4. What was total revenue in each year 2021-2025, and what is the percent change from the prior year?
-5. What is monthly revenue across the full period (the pattern behind the yearly totals)?
+5. What is monthly revenue over the most recent two years, January 2024 to December 2025 (the recent pattern behind the yearly totals)?
 
 **Brief question C: Does a small group of customers carry the business, and do they keep coming back?**
 
@@ -46,7 +46,7 @@
 | Revenue share | Group revenue ÷ total revenue | One row per genre or country | None | Derived from the metrics above |
 | Yearly revenue | Revenue grouped by calendar year | One row per year | 2025 ends 22 Dec | invoice.invoice_date, invoice_line |
 | Year-over-year change | (This year − prior year) ÷ prior year | One row per year | 2021 has no prior year | Derived from Yearly revenue |
-| Monthly revenue | Revenue grouped by calendar month | One row per month | None | invoice.invoice_date, invoice_line |
+| Monthly revenue | Revenue grouped by calendar month | One row per month | Most recent two years: 2024-01-01 to 2025-12-22 | invoice.invoice_date, invoice_line |
 | Customer revenue | Revenue grouped by customer | One row per customer | None | invoice.customer_id, invoice_line |
 | Top-10 customer share | Sum of Customer revenue for customers ranked in the top 10 ÷ total revenue | One row | Customers tied for 10th place are all included, so the list can show 11 | Derived from Customer revenue |
 | Years active | Count of distinct calendar years with at least one invoice | One row per customer | Top 10 customers, including any tied for 10th | invoice.customer_id, invoice.invoice_date |
@@ -73,7 +73,7 @@ Every screen shows the grand total revenue and the date range it covers, so Morg
 | Screen | Answers | Filters |
 |---|---|---|
 | 1. Where the money comes from | Questions 1, 2, 3 | Year picker (default: all years). The grand total, shares and combinations change with the year chosen. |
-| 2. Growth | Questions 4, 5 | None. Always the full period. |
+| 2. Growth | Questions 4, 5 | None. The yearly table covers the full period; the monthly line covers January 2024 to December 2025. |
 | 3. Customers | Questions 6, 7 | None. Always the full period. |
 | 4. Sales reps | Questions 8, 9 | None. Always the full period. |
 
@@ -84,7 +84,7 @@ Every screen shows the grand total revenue and the date range it covers, so Morg
 - **AC-3** (question 2): Given all years are selected, when Screen 1 loads, then the top five countries by revenue are USA 523.06 (22.5%), Canada 303.96 (13.1%), France 195.10 (8.4%), Brazil 190.10 (8.2%), and Germany 156.48 (6.7%).
 - **AC-4** (question 3): Given all years are selected, when Screen 1 loads, then the top three genre-and-country combinations are USA Rock 155.43, Canada Rock 105.93, and USA Latin 90.09.
 - **AC-5** (question 4): Given the Growth screen, when it loads, then yearly revenue is 2021: 449.46, 2022: 481.45, 2023: 469.58, 2024: 477.53, 2025: 450.58, with change from the prior year of none, +7.1%, -2.5%, +1.7%, and -5.6%.
-- **AC-6** (question 5): Given the Growth screen, when it loads, then monthly revenue shows 60 months from January 2021 to December 2025, and January 2021 is 35.64.
+- **AC-6** (question 5): Given the Growth screen, when it loads, then monthly revenue shows 24 months from January 2024 to December 2025, and those months add up to 928.11 (2024 plus 2025 in AC-5).
 - **AC-7** (question 6): Given the Customers screen, when it loads, then the top 10 customers account for 451.20 of revenue, which is 19.4% of the total.
 - **AC-8** (question 7): Given the Customers screen, when it loads, then of the top 10 customers 3 bought in 3 of the 5 years, 5 bought in 4 years, and 2 bought in all 5 years.
 - **AC-9** (question 8): Given the Sales reps screen, when it loads, then revenue from each rep's customers is Jane 833.04, Margaret 775.40, and Steve 720.16.

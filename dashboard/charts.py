@@ -6,8 +6,9 @@ built by any teammate, in any session, looks like the rest of the dashboard.
 To change the look, change the rule in design.md and the matching line here
 (and the theme in .streamlit/config.toml), never one view at a time.
 
-Number kinds: "money" ($1,234, or $5.65 under $10), "count" (1,234),
-"percent" (12.3%, from a fraction such as 0.123).
+Number kinds: "money" ($1,234, or $5.65 under $10), "cents" ($2,328.60, for
+grand totals, the ties-to-Finance tile, and exact-value tables), "count"
+(1,234), "percent" (12.3%, from a fraction such as 0.123).
 """
 
 import pandas as pd
