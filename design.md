@@ -20,7 +20,7 @@ One row per framed question in `spec.md`.
 | 2 | Top five countries and each one's share of revenue | Horizontal bars of percentages (`charts.ranked_bar(kind="percent")`) | Shares of a whole; matches question 1 so the two read side by side |
 | 3 | Genre-and-country pairs that earn the most | Horizontal bars, top 10 pairs (`charts.ranked_bar`) | Items ranked by size |
 | 4 | Revenue each year 2021-2025 and change from the prior year | Table: year · revenue · change vs prior year, drops in red (`st.dataframe`) | Five exact values and percentages Morgan will quote; question 5 shows the shape |
-| 5 | Monthly revenue across the full period | A line, 60 months (`charts.trend_line`) | Change over time |
+| 5 | Monthly revenue, January 2024 to December 2025 | A line, 24 months (`charts.trend_line`) | Change over time |
 | 6 | Share of revenue from the top 10 customers | Horizontal bars of the top 10 customers' revenue (`charts.ranked_bar`) | Shows how concentrated revenue is; the headline gives the share |
 | 7 | Years (of five) each top-10 customer bought in | Table: customer · revenue · years active (`st.dataframe`) | Ten names with exact counts to look up |
 | 8 | Revenue from each sales support rep's customers | Horizontal bars (`charts.ranked_bar`) | Items ranked by size |
@@ -102,11 +102,11 @@ SIDEBAR                       | Revenue is flat: $449 to $481 a year, and 2025 i
                               |    2025   $450.58    −5.6%   (red)
                               |    Q4 · table
                               |
-                              | ── Monthly revenue holds near $39 a month ─────────────────
-                              |    Revenue by calendar month · Jan 2021 – Dec 2025
+                              | ── Over the last two years, monthly revenue holds near $39 ─
+                              |    Revenue by calendar month · Jan 2024 – Dec 2025 (2025 ends 22 Dec)
                               |    $ ┤  ╱╲_╱‾╲_╱╲__╱‾╲_╱╲_╱‾╲__╱╲_╱‾╲_
                               |      └──────────────────────────────────
-                              |       2021   2022   2023   2024   2025
+                              |       Jan 2024          Jan 2025          Dec 2025
                               |    Q5 · line
 ```
 
